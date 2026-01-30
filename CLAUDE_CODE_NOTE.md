@@ -120,3 +120,10 @@ Then restart server.
 - Contradictions tab now shows Claim A vs Claim B texts with a type chip for clarity.
 - Removed Ollama entirely; brief generation now uses Groq key only (fallback to template if Groq unavailable).
 - Adjusted palette to warm parchment/wood and refreshed splash/auth/list visuals.
+
+## Jan 30, 2026 — Vercel deploy fix (Flutter web)
+- Added `culture_compass_flutter/lib/core/config/app_config.dart` to centralize `SERVER_URL` + `REPORT_URL` and compute report links in prod.
+- `main.dart` now uses `AppConfig.serverUrl`.
+- `room_detail_screen.dart` now uses `AppConfig.reportUrlForSlug(...)` instead of hardcoded localhost.
+- Added `scripts/vercel_build.sh` to build Flutter web on Vercel (downloads Flutter stable, builds with `SERVER_URL=https://culturecompass.api.serverpod.space/` and `REPORT_URL=https://culturecompass.serverpod.space`).
+- Added `vercel.json` to run the script, output to `vercel_dist`, and SPA rewrite.

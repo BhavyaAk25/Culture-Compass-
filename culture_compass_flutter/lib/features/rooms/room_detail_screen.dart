@@ -8,6 +8,7 @@ import 'package:flutter/services.dart';
 import 'package:share_plus/share_plus.dart';
 import 'package:url_launcher/url_launcher.dart';
 
+import '../../core/config/app_config.dart';
 import '../../core/providers/session_provider.dart';
 import '../../core/theme/app_colors.dart';
 import '../../main.dart';
@@ -464,7 +465,7 @@ class _RoomDetailScreenState extends ConsumerState<RoomDetailScreen> {
     final room = await client.room.publishRoom(widget.roomId);
     if (!mounted || room?.publicSlug == null) return;
 
-    final url = 'http://localhost:8082/report/${room!.publicSlug}';
+    final url = AppConfig.reportUrlForSlug(room!.publicSlug!);
     if (!mounted) return;
     showDialog<void>(
       context: context,

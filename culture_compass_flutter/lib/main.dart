@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:serverpod_flutter/serverpod_flutter.dart';
 
+import 'core/config/app_config.dart';
 import 'core/providers/router_provider.dart';
 import 'core/theme/app_theme.dart';
 
@@ -13,11 +14,7 @@ void main() {
   WidgetsFlutterBinding.ensureInitialized();
 
   // Server URL configuration
-  const serverUrlFromEnv = String.fromEnvironment('SERVER_URL');
-  final serverUrl =
-      serverUrlFromEnv.isEmpty ? 'http://$localhost:8080/' : serverUrlFromEnv;
-
-  client = Client(serverUrl)
+  client = Client(AppConfig.serverUrl)
     ..connectivityMonitor = FlutterConnectivityMonitor();
 
   runApp(
