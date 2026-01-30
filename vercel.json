@@ -1,9 +1,0 @@
-{
-  "framework": null,
-  "buildCommand": "bash scripts/vercel_build.sh",
-  "installCommand": "true",
-  "outputDirectory": "vercel_dist",
-  "rewrites": [
-    { "source": "/(.*)", "destination": "/index.html" }
-  ]
-}

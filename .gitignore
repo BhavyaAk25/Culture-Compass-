@@ -39,6 +39,7 @@ migrate_working_dir/
 # culture_compass_server/web/app/
 vercel_dist/
 culture_compass_server/web/flutter/
+.local_backup/
 
 # Node modules
 **/node_modules/
