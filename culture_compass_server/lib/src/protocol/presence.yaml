@@ -1,0 +1,12 @@
+class: Presence
+table: presences
+fields:
+  roomId: int
+  userId: int
+  status: String
+  lastSeenAt: DateTime
+indexes:
+  presence_room_idx:
+    fields: roomId
+  presence_user_idx:
+    fields: userId

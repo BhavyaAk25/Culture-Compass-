@@ -1,0 +1,17 @@
+class: Room
+table: rooms
+fields:
+  code: String
+  title: String
+  description: String?
+  publicSlug: String?
+  publishedAt: DateTime?
+  createdBy: int
+  createdAt: DateTime
+indexes:
+  room_code_idx:
+    fields: code
+    unique: true
+  room_public_slug_idx:
+    fields: publicSlug
+    unique: true

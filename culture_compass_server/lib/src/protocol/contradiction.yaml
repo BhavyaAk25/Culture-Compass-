@@ -1,0 +1,14 @@
+class: Contradiction
+table: contradictions
+fields:
+  roomId: int
+  claimAId: int
+  claimBId: int
+  disagreementType: String
+  explanation: String
+  createdBy: int
+  createdAt: DateTime
+  resolvedAt: DateTime?
+indexes:
+  contradiction_room_idx:
+    fields: roomId

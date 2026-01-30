@@ -1,0 +1,14 @@
+class: Claim
+table: claims
+fields:
+  roomId: int
+  sourceId: int
+  claimText: String
+  quote: String
+  createdBy: int
+  createdAt: DateTime
+indexes:
+  claim_room_idx:
+    fields: roomId
+  claim_source_idx:
+    fields: sourceId

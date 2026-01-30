@@ -1,0 +1,31 @@
+auth:
+  - signIn:
+  - getProfile:
+brief:
+  - generateBrief:
+  - getLatestBrief:
+claim:
+  - addClaim:
+  - listClaims:
+contradiction:
+  - addContradiction:
+  - listContradictions:
+presence:
+  - setStatus:
+  - heartbeat:
+  - streamPresence:
+room:
+  - createRoom:
+  - joinByCode:
+  - listUserRooms:
+  - getRoom:
+  - listRoomMembers:
+  - publishRoom:
+source:
+  - addSource:
+  - listSources:
+  - streamRoomEvents:
+suggest:
+  - suggestForClaim:
+greeting:
+  - hello:

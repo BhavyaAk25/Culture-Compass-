@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Culture Compass Report</title>
+  </head>
+  <body>
+    <div id="app">
+      <header class="hero">
+        <div>
+          <p class="eyebrow">Culture Compass</p>
+          <h1 id="report-title">Research Report</h1>
+          <p id="report-subtitle" class="subtitle">Loading brief...</p>
+        </div>
+        <div id="globe"></div>
+      </header>
+      <main>
+        <section class="card" id="brief-section">
+          <h2>Morning Brief</h2>
+          <div id="brief"></div>
+        </section>
+        <section class="card" id="sources-section">
+          <h2>Sources</h2>
+          <ul id="sources"></ul>
+        </section>
+        <section class="card" id="claims-section">
+          <h2>Claims</h2>
+          <ul id="claims"></ul>
+        </section>
+        <section class="card" id="contradictions-section">
+          <h2>Contradictions</h2>
+          <ul id="contradictions"></ul>
+        </section>
+      </main>
+    </div>
+    <script src="https://unpkg.com/globe.gl"></script>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>

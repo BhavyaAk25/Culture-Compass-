@@ -1,0 +1,55 @@
+name: culture_compass_flutter
+description: Culture Compass - Collaborative Research Room for sensemaking with receipts.
+
+publish_to: 'none'
+
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.5.0 <4.0.0'
+  flutter: '>=3.24.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  serverpod_flutter: 2.9.2
+  serverpod_auth_client: 2.9.2
+  culture_compass_client:
+    path: ../culture_compass_client
+
+  # State Management
+  flutter_riverpod: ^2.5.1
+  riverpod_annotation: ^2.3.5
+
+  # Routing
+  go_router: ^14.2.0
+
+  # UI & Design
+  google_fonts: ^6.2.1
+  flutter_animate: ^4.5.0
+  lucide_icons: ^0.257.0
+  cached_network_image: ^3.3.1
+  flutter_markdown: ^0.7.3
+  shimmer: ^3.0.0
+
+  # Utilities
+  uuid: ^4.4.2
+  url_launcher: ^6.2.6
+  share_plus: ^9.0.0
+
+  # Icons
+  cupertino_icons: ^1.0.5
+
+dev_dependencies:
+  flutter_lints: '>=3.0.0 <7.0.0'
+  flutter_test:
+    sdk: flutter
+  riverpod_generator: ^2.4.0
+  build_runner: ^2.4.9
+
+flutter:
+  uses-material-design: true
+
+  assets:
+    - assets/images/
+    - assets/icons/

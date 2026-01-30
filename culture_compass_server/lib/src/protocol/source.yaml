@@ -1,0 +1,17 @@
+class: Source
+table: sources
+fields:
+  roomId: int
+  url: String
+  title: String?
+  author: String?
+  publishedAt: DateTime?
+  snippet: String?
+  regionTag: String?
+  disciplineTag: String?
+  stanceTag: String?
+  addedBy: int
+  addedAt: DateTime
+indexes:
+  source_room_idx:
+    fields: roomId

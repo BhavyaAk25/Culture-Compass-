@@ -1,0 +1,7 @@
+class: SuggestedSource
+fields:
+  title: String
+  url: String
+  source: String
+  snippet: String?
+  whyRelevant: String?

@@ -1,0 +1,11 @@
+class: RoomMember
+table: room_members
+fields:
+  roomId: int
+  userId: int
+  role: String
+  joinedAt: DateTime
+indexes:
+  room_member_idx:
+    fields: roomId, userId
+    unique: true

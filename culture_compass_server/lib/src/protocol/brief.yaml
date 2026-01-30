@@ -1,0 +1,11 @@
+class: Brief
+table: briefs
+fields:
+  roomId: int
+  markdown: String
+  version: int
+  createdBy: int
+  createdAt: DateTime
+indexes:
+  brief_room_idx:
+    fields: roomId

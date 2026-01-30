@@ -1,0 +1,6 @@
+class: RoomEvent
+fields:
+  type: String
+  roomId: int
+  payload: String
+  createdAt: DateTime

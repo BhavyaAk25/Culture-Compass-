@@ -1,0 +1,5 @@
+class: UserProfile
+table: user_profiles
+fields:
+  displayName: String
+  createdAt: DateTime
