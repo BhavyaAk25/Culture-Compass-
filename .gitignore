@@ -22,6 +22,7 @@ migrate_working_dir/
 # Flutter/Dart
 **/doc/api/
 **/ios/Flutter/.last_build_id
+.flutter/
 .dart_tool/
 .flutter-plugins
 .flutter-plugins-dependencies
@@ -36,6 +37,8 @@ migrate_working_dir/
 
 # Web build output (keep tracked)
 # culture_compass_server/web/app/
+vercel_dist/
+culture_compass_server/web/flutter/
 
 # Node modules
 **/node_modules/

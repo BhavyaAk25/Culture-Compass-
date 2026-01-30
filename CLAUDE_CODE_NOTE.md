@@ -127,3 +127,23 @@ Then restart server.
 - `room_detail_screen.dart` now uses `AppConfig.reportUrlForSlug(...)` instead of hardcoded localhost.
 - Added `scripts/vercel_build.sh` to build Flutter web on Vercel (downloads Flutter stable, builds with `SERVER_URL=https://culturecompass.api.serverpod.space/` and `REPORT_URL=https://culturecompass.serverpod.space`).
 - Added `vercel.json` to run the script, output to `vercel_dist`, and SPA rewrite.
+
+## Jan 30, 2026 — Serverpod Cloud “All-in-One” Web Hosting (No Vercel)
+Goal: Host the full experience on Serverpod Cloud by serving the Flutter web build from the Serverpod web domain.
+
+### What changed
+- **Fixed report static assets**: `RouteStaticDirectory` was incorrectly configured with `serverDirectory: 'web/app'` which caused `/assets/*` to 404 in production. Updated to `serverDirectory: 'app'`.
+- **Served Flutter web at `/app/`**:
+  - Added `RouteStaticDirectory(serverDirectory: 'flutter', basePath: '/')` on `/app/*` to serve Flutter build assets from `culture_compass_server/web/flutter/app/`.
+  - Added `FlutterAppRoute` fallback to serve `index.html` for client-side routing (GoRouter) on `/app/*`.
+  - Added `RootRedirectRoute` so `/` redirects to `/app/`.
+- **Automated cloud builds**:
+  - Added `scripts/build_serverpod_cloud_web.sh` to build:
+    - `webui` → `culture_compass_server/web/app/` (public report)
+    - Flutter web (`--base-href /app/`) → `culture_compass_server/web/flutter/app/`
+  - Wired the script into `culture_compass_server/scloud.yaml` `pre_deploy` so `scloud deploy` always uploads fresh web assets.
+
+### URLs after deploy
+- Flutter web app: `https://culturecompass.serverpod.space/app/` (and `/` redirects here)
+- Public report: `https://culturecompass.serverpod.space/report/<slug>`
+- API: `https://culturecompass.api.serverpod.space/`

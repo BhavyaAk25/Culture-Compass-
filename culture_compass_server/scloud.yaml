@@ -10,5 +10,7 @@
 project:
   projectId: "culturecompass"
   scripts:
-    pre_deploy: []
+    pre_deploy:
+      # Build web assets locally before uploading to Serverpod Cloud.
+      - bash ../scripts/build_serverpod_cloud_web.sh
     post_deploy: []

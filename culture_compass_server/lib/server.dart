@@ -1,8 +1,10 @@
 import 'package:culture_compass_server/src/birthday_reminder.dart';
 import 'package:serverpod/serverpod.dart';
 
+import 'package:culture_compass_server/src/web/routes/flutter_app_route.dart';
 import 'package:culture_compass_server/src/web/routes/report_api.dart';
 import 'package:culture_compass_server/src/web/routes/report_route.dart';
+import 'package:culture_compass_server/src/web/routes/root_redirect_route.dart';
 
 import 'src/generated/protocol.dart';
 import 'src/generated/endpoints.dart';
@@ -15,13 +17,23 @@ void run(List<String> args) async {
   // Initialize Serverpod and connect it with your generated code.
   final pod = Serverpod(args, Protocol(), Endpoints());
 
+  // Friendly entrypoint for the web domain.
+  pod.webServer.addRoute(RootRedirectRoute(), '/');
+
+  // Flutter web app at `/app/*` (assets) with SPA fallback.
+  pod.webServer.addRoute(
+    RouteStaticDirectory(serverDirectory: 'flutter', basePath: '/'),
+    '/app/*',
+  );
+  pod.webServer.addRoute(FlutterAppRoute(), '/app/*');
+
   // Public report JSON API and report route.
   pod.webServer.addRoute(ReportApiRoute(), '/api/report/*');
   pod.webServer.addRoute(ReportRoute(), '/report/*');
 
   // Serve built web report assets.
   pod.webServer.addRoute(
-    RouteStaticDirectory(serverDirectory: 'web/app', basePath: '/'),
+    RouteStaticDirectory(serverDirectory: 'app', basePath: '/'),
     '/*',
   );
 

@@ -160,6 +160,35 @@ npm install
 npm run build
 ```
 
+---
+
+## Deployment (Serverpod Cloud)
+
+This project is set up to host **everything** on Serverpod Cloud:
+- Flutter web app served at `/app/`
+- Public report served at `/report/<slug>`
+
+### One-time setup
+```bash
+dart pub global activate serverpod_cloud_cli
+scloud auth login
+```
+
+### Deploy
+```bash
+cd culture_compass_server
+scloud deploy
+```
+
+`scloud deploy` runs a pre-deploy script that builds:
+- `webui` → `culture_compass_server/web/app/`
+- Flutter web (`--base-href /app/`) → `culture_compass_server/web/flutter/app/`
+
+### Live URLs
+- App: `https://culturecompass.serverpod.space/app/` (and `/` redirects here)
+- Report: `https://culturecompass.serverpod.space/report/<slug>`
+- API: `https://culturecompass.api.serverpod.space/`
+
 ### Environment Variables
 
 Create `config/passwords.yaml` in the server directory:
